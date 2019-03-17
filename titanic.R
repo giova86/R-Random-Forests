@@ -8,14 +8,14 @@ library(randomForest)
 # =========================================================================================== #
 
 path <- getwd()
-titanic.competition <- read.csv(file = paste0(path,"/test.csv"),
-                         stringsAsFactors = FALSE,
-                         header = TRUE
+titanic.competition <- read.csv(file = paste0(path,"/datasets/test.csv"),
+                                stringsAsFactors = FALSE,
+                                header = TRUE
 )
 titanic.competition$dataType <- "competition"
 titanic.competition$Survived <- NA
 
-titanic.data <- read.csv(file = paste0(path,"/train.csv",
+titanic.data <- read.csv(file = paste0(path,"/datasets/train.csv"),
                           stringsAsFactors = FALSE,
                           header = TRUE
 )
@@ -140,5 +140,5 @@ PassengerId <- titanic.competition$PassengerId
 result.df <- data.frame(PassengerId = PassengerId, Survived = as.integer(Survived)-1)
 str(result.df)
 
-write.csv(result.df, file = paste0(path,"/kaggle_sub.csv", row.names = FALSE)
+#write.csv(result.df, file = paste0(path,"/output/kaggle_sub.csv"), row.names = FALSE)
 
